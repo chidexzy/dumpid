@@ -298,7 +298,7 @@ def idfrom_teman():
             print '\r\x1b[1;95m • \x1b[1;93m' + str(len(idfromteman)) + '\x1b[1;93m -> ',
             sys.stdout.flush()
             time.sleep(0.005)
-            print '\x1b[1;92m' + a['id'] + " | " + a['name']
+            print '\x1b[1;92m' + a['id'] + "|" + a['name']
 
         bz.close()
         print '\n\x1b[1;93m [\x1b[1;92m\xe2\x9c\x93\x1b[1;93m] \x1b[1;92mSukses Mengambil ID '
