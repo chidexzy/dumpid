@@ -231,7 +231,7 @@ def id_teman():
 
         r = requests.get('https://graph.facebook.com/' + idt + '?fields=friends.limit(50000)&access_token=' + toket)
         z = json.loads(r.text)
-        jalan('\x1b[1;95m • \x1b[1;91mLoading ID's Now \x1b[1;97m...')
+        jalan('\x1b[1;95m • \x1b[1;91mLoading IDs Now \x1b[1;97m...')
         print 50 * '\x1b[1;91m\xe2\x94\x80'
         bz = open('out/id_teman_from_teman.txt', 'w')
         for a in z['friends']['data']:
