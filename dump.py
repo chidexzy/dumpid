@@ -45,7 +45,7 @@ done = False
 #done = True
 
 def keluar():
-    print '\x1b[0;91m•\x1b[0;93m Sampai Jumpa :)\x1b[0;97m'
+    print '\x1b[0;91m•\x1b[0;93m See You Again :)\x1b[0;97m'
     os.sys.exit()
     
 def hapus():
@@ -86,7 +86,7 @@ def masuk():
 def pilih_masuk():
     msuk = raw_input('* --> ')
     if msuk == '':
-        print ' Isi Yg Benar Sayang!'
+        print ' INVALID!!!'
         pilih_masuk()
     elif msuk == '1':
         login_token()
@@ -95,7 +95,7 @@ def pilih_masuk():
     elif msuk == '0':
         os.sys.exit()
     else:
-        print ' Isi Yg Benar Sayang!'
+        print ' INVALID!!!'
         pilih_masuk()
 
 def login_token():
@@ -113,11 +113,11 @@ def login_token():
         jalan ('\x1b[1;92m Login Berhasil !\x1b[0;97m ')
         dump()
     except KeyError:
-        print 'Token salah !'
+        print 'Token Expired !!!'
         time.sleep(1.7)
         masuk()
     except requests.exceptions.SSLError:
-        print ' Koneksi Bermasalah'
+        print ' Connection Problem'
         exit()
 
 
@@ -147,16 +147,16 @@ def login_cookie():
         time.sleep(2)
         dump()
     except AttributeError:
-        print ' Cookie salah !'
+        print ' Wrong Cookie !'
         time.sleep(2)
         masuk()
     except UnboundLocalError:
-        print ' Cookie salah !'
+        print ' Wrong Cookie !'
         time.sleep(2)
         masuk()
     except requests.exceptions.SSLError:
         os.system('clear')
-        print ' Koneksi Bermasalah'
+        print ' Connection Problem'
         exit()
 
 
@@ -166,7 +166,7 @@ def dump():
     try:
         toket = open('login.txt', 'r').read()
     except IOError:
-        print ' Token invalid '
+        print ' Token Invalid '
         os.system('rm -rf login.txt')
         time.sleep(0.01)
         masuk()
@@ -185,7 +185,7 @@ def dump():
 def dump_pilih():
     cuih = raw_input(' *--> ')
     if cuih == '':
-        print ' Isi Yg Benar Sayang!'
+        print ' WRONG!'
         dump_pilih()
     elif cuih == '1' or cuih == '01':
         id_teman()
@@ -196,7 +196,7 @@ def dump_pilih():
     elif cuih == '0' or cuih == '00':
         hapus()
     else:
-        print ' Isi Yg Benar Sayang!'
+        print ' WRONG!'
         dump_pilih()
 
 
@@ -225,7 +225,7 @@ def id_teman():
             op = json.loads(jok.text)
             print ' Acct Name      : ' + op['name']
         except KeyError:
-            print ' \x1b[1;91mID Publik Tidak Ada !'
+            print ' \x1b[1;91mPublic ID Missing !'
             raw_input('\n\x1b[1;93m[\x1b[1;91mReturn\x1b[1;93m]')
             dump()
 
@@ -247,11 +247,11 @@ def id_teman():
         print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mTotal ID\x1b[1;91m :\x1b[1;92m %s' % len(idfromteman)
         done = raw_input('\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mSave File Name\x1b[1;91m : \x1b[1;92m')
         os.rename('out/id_teman_from_teman.txt', 'out/' + done)
-        print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mFile tersimpan \x1b[1;91m: \x1b[1;92mout/' + done
+        print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mSaved files \x1b[1;91m: \x1b[1;92mout/' + done
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except OSError:
-        print '\x1b[1;91m File tidak tersimpan '
+        print '\x1b[1;91m File not saved '
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except IOError:
@@ -259,7 +259,7 @@ def id_teman():
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except (KeyboardInterrupt, EOFError):
-        print '\x1b[1;91m Terhenti '
+        print '\x1b[1;91m Stopped '
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except KeyError:
@@ -267,7 +267,7 @@ def id_teman():
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except requests.exceptions.ConnectionError:
-        print '\x1b[1;91m Tidak ada koneksi !'
+        print '\x1b[1;91m No connection !'
         keluar()
 
 
@@ -296,7 +296,7 @@ def idfrom_teman():
             op = json.loads(jok.text)
             print ' Acct Name      : ' + op['name']
         except KeyError:
-            print ' \x1b[1;91mID Publik Tidak Ada !'
+            print ' \x1b[1;91mPublic ID Missing !'
             raw_input('\n\x1b[1;93m[\x1b[1;91mReturn\x1b[1;93m]')
             dump()
 
@@ -318,11 +318,11 @@ def idfrom_teman():
         print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mTotal ID\x1b[1;91m :\x1b[1;92m %s' % len(idfromteman)
         done = raw_input('\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mSave File Name\x1b[1;91m : \x1b[1;92m')
         os.rename('out/id_teman_from_teman.txt', 'out/' + done)
-        print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mFile tersimpan \x1b[1;91m: \x1b[1;92mout/' + done
+        print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mSaved files \x1b[1;91m: \x1b[1;92mout/' + done
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except OSError:
-        print '\x1b[1;91m File tidak tersimpan '
+        print '\x1b[1;91m File not saved '
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except IOError:
@@ -330,7 +330,7 @@ def idfrom_teman():
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except (KeyboardInterrupt, EOFError):
-        print '\x1b[1;91m Terhenti '
+        print '\x1b[1;91m Stopped '
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except KeyError:
@@ -338,7 +338,7 @@ def idfrom_teman():
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except requests.exceptions.ConnectionError:
-        print '\x1b[1;91m Tidak ada koneksi !'
+        print '\x1b[1;91m No connection !'
         keluar()
         
 
@@ -367,11 +367,11 @@ def idfrom_react():
             op = json.loads(jok.text)
             print ' Acct Name      : ' + op['name']
         except KeyError:
-            print ' \x1b[1;91mID Publik Tidak Ada !'
+            print ' \x1b[1;91mPublic ID Missing !'
             raw_input('\n\x1b[1;93m[\x1b[1;91mReturn\x1b[1;93m]')
             dump()
 
-        r = requests.get('https://graph.facebook.com/' + idt + '?fields=followers.limit(50000)&access_token=' + toket)
+        r = requests.get('https://graph.facebook.com/' + idt + '?fields=reactions.limit(50000)&access_token=' + toket)
         z = json.loads(r.text)
         jalan('\x1b[1;95m • \x1b[1;91mLoading ID's Now \x1b[1;97m...')
         print 50 * '\x1b[1;91m\xe2\x94\x80'
@@ -389,11 +389,11 @@ def idfrom_react():
         print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mTotal ID\x1b[1;91m :\x1b[1;92m %s' % len(idfromteman)
         done = raw_input('\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mSave File Name\x1b[1;91m : \x1b[1;92m')
         os.rename('out/id_teman_from_teman.txt', 'out/' + done)
-        print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mFile tersimpan \x1b[1;91m: \x1b[1;92mout/' + done
+        print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mSaved files \x1b[1;91m: \x1b[1;92mout/' + done
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except OSError:
-        print '\x1b[1;91m File tidak tersimpan '
+        print '\x1b[1;91m File not saved '
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except IOError:
@@ -401,7 +401,7 @@ def idfrom_react():
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except (KeyboardInterrupt, EOFError):
-        print '\x1b[1;91m Terhenti '
+        print '\x1b[1;91m Stopped '
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except KeyError:
@@ -409,7 +409,7 @@ def idfrom_react():
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
     except requests.exceptions.ConnectionError:
-        print '\x1b[1;91m Tidak ada koneksi !'
+        print '\x1b[1;91m No connection !'
         keluar()
 
         
