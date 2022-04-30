@@ -361,11 +361,11 @@ def idfrom_react():
         os.system('clear')
         os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
         print 50 * '\x1b[1;91m\xe2\x94\x80'
-        idt = raw_input(' User ID Target : ')
+        idt = raw_input(' Post ID Target : ')
         try:
-            jok = requests.get('https://graph.facebook.com/' + idt + '?access_token=' + toket)
+            jok = requests.get('https://graph.facebook.com/' + idt + '/reactions?access_token=' + toket + '&limit=999999')
             op = json.loads(jok.text)
-            print ' Acct Name      : ' + op['name']
+            print("\033[94;1m  TOTAL IDS  : \033[0;92m%s\033[0;97m"%(len(id)))
         except KeyError:
             print ' \x1b[1;91mPublic ID Missing !'
             raw_input('\n\x1b[1;93m[\x1b[1;91mReturn\x1b[1;93m]')
