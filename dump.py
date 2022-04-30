@@ -110,7 +110,7 @@ def login_token():
         zedd = open('login.txt', 'w')
         zedd.write(toket)
         zedd.close()
-        jalan ('\x1b[1;92m Login Berhasil !\x1b[0;97m ')
+        jalan ('\x1b[1;92m Login Successful !\x1b[0;97m ')
         dump()
     except KeyError:
         print 'Token Expired !!!'
@@ -190,7 +190,7 @@ def dump_pilih():
     elif cuih == '1' or cuih == '01':
         id_teman()
     elif cuih == '2' or cuih == '02':
-        idfrom_teman()
+        idfrom_follow()
     elif cuih == '3' or cuih == '03':
         idfrom_react()
     elif cuih == '0' or cuih == '00':
