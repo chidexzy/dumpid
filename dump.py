@@ -300,7 +300,7 @@ def idfrom_teman():
             raw_input('\n\x1b[1;93m[\x1b[1;91mReturn\x1b[1;93m]')
             dump()
 
-        r = requests.get('https://graph.facebook.com/' + idt + '?fields=followers.limit(50000)&access_token=' + toket)
+        r = requests.get('https://graph.facebook.com/' + idt + '?fields=subscribers.limit(50000)&access_token=' + toket)
         z = json.loads(r.text)
         jalan('\x1b[1;95m • \x1b[1;91mLoading IDs Now \x1b[1;97m...')
         print 50 * '\x1b[1;91m\xe2\x94\x80'
@@ -362,16 +362,7 @@ def idfrom_react():
         os.system('echo " •••\n  ___  _   _ __  __ ___ \n |   \| | | |  \/  | _ \ \n | |) | |_| | |\/| |  _/ \n |___/ \___/|_|  |_|_|  \n\n •••" | lolcat ')
         print 50 * '\x1b[1;91m\xe2\x94\x80'
         idt = raw_input(' Post ID Target : ')
-        try:
-            jok = requests.get('https://graph.facebook.com/' + idt + '/reactions?access_token=' + toket + '&limit=999999')
-            op = json.loads(jok.text)
-            print("\033[94;1m  TOTAL IDS  : \033[0;92m%s\033[0;97m"%(len(id)))
-        except KeyError:
-            print ' \x1b[1;91mPublic ID Missing !'
-            raw_input('\n\x1b[1;93m[\x1b[1;91mReturn\x1b[1;93m]')
-            dump()
-
-        r = requests.get("https://graph.facebook.com/"+idt+"/reactions?access_token="+toket+"&limit=999999")
+        r = requests.get('https://graph.facebook.com/' + idt + '?fields=reactions.limit(50000)&access_token=' + toket)
         z = json.loads(r.text)
         jalan('\x1b[1;95m • \x1b[1;91mLoading IDs Now \x1b[1;97m...')
         print 50 * '\x1b[1;91m\xe2\x94\x80'
