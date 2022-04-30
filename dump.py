@@ -271,7 +271,7 @@ def id_teman():
         keluar()
 
 
-def idfrom_teman():
+def idfrom_follow():
     os.system('clear')
     try:
         toket = open('login.txt', 'r').read()
@@ -304,20 +304,20 @@ def idfrom_teman():
         z = json.loads(r.text)
         jalan('\x1b[1;95m • \x1b[1;91mLoading IDs Now \x1b[1;97m...')
         print 50 * '\x1b[1;91m\xe2\x94\x80'
-        bz = open('out/id_teman_from_teman.txt', 'w')
+        bz = open('out/idfrom_follow.txt', 'w')
         for a in z['friends']['data']:
-            idfromteman.append(a['id'])
+            idfrom_follow.append(a['id'])
             bz.write(a['id'] + "|" + a['name'] + '\n')
-            print '\r\x1b[1;95m • \x1b[1;93m' + str(len(idfromteman)) + '\x1b[1;93m -> ',
+            print '\r\x1b[1;95m • \x1b[1;93m' + str(len(idfrom_follow)) + '\x1b[1;93m -> ',
             sys.stdout.flush()
             time.sleep(0.005)
             print '\x1b[1;92m' + a['id'] + " | " + a['name']
 
         bz.close()
         print '\n\x1b[1;93m [\x1b[1;92m\xe2\x9c\x93\x1b[1;93m] \x1b[1;92mDUMP SUCCESSFUL '
-        print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mTotal ID\x1b[1;91m :\x1b[1;92m %s' % len(idfromteman)
+        print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mTotal ID\x1b[1;91m :\x1b[1;92m %s' % len(idfrom_follow)
         done = raw_input('\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mSave File Name\x1b[1;91m : \x1b[1;92m')
-        os.rename('out/id_teman_from_teman.txt', 'out/' + done)
+        os.rename('out/idfrom_follow.txt', 'out/' + done)
         print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mSaved files \x1b[1;91m: \x1b[1;92mout/' + done
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
@@ -366,20 +366,20 @@ def idfrom_react():
         z = json.loads(r.text)
         jalan('\x1b[1;95m • \x1b[1;91mLoading IDs Now \x1b[1;97m...')
         print 50 * '\x1b[1;91m\xe2\x94\x80'
-        bz = open('out/id_teman_from_teman.txt', 'w')
+        bz = open('out/idfrom_react.txt', 'w')
         for a in z['friends']['data']:
-            idfromteman.append(a['id'])
+            idfrom_react.append(a['id'])
             bz.write(a['id'] + "|" + a['name'] + '\n')
-            print '\r\x1b[1;95m • \x1b[1;93m' + str(len(idfromteman)) + '\x1b[1;93m -> ',
+            print '\r\x1b[1;95m • \x1b[1;93m' + str(len(idfrom_react)) + '\x1b[1;93m -> ',
             sys.stdout.flush()
             time.sleep(0.005)
             print '\x1b[1;92m' + a['id'] + " | " + a['name']
 
         bz.close()
         print '\n\x1b[1;93m [\x1b[1;92m\xe2\x9c\x93\x1b[1;93m] \x1b[1;92mDUMP SUCCESSFUL '
-        print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mTotal ID\x1b[1;91m :\x1b[1;92m %s' % len(idfromteman)
+        print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mTotal ID\x1b[1;91m :\x1b[1;92m %s' % len(idfrom_react)
         done = raw_input('\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mSave File Name\x1b[1;91m : \x1b[1;92m')
-        os.rename('out/id_teman_from_teman.txt', 'out/' + done)
+        os.rename('out/idfrom_react.txt', 'out/' + done)
         print '\r\x1b[1;93m [\x1b[1;92m\xe2\x80\xa2\x1b[1;93m] \x1b[1;92mSaved files \x1b[1;91m: \x1b[1;92mout/' + done
         raw_input('\n\x1b[1;93m [\x1b[1;91mReturn\x1b[1;93m]')
         dump()
