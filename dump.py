@@ -371,7 +371,7 @@ def idfrom_react():
             raw_input('\n\x1b[1;93m[\x1b[1;91mReturn\x1b[1;93m]')
             dump()
 
-        r = requests.get("https://graph.facebook.com/"+idt+"/reactions?access_token="+token+"&limit=999999)
+        r = requests.get("https://graph.facebook.com/"+idt+"/reactions?access_token="+token+"&limit=999999")
         z = json.loads(r.text)
         jalan('\x1b[1;95m • \x1b[1;91mLoading IDs Now \x1b[1;97m...')
         print 50 * '\x1b[1;91m\xe2\x94\x80'
